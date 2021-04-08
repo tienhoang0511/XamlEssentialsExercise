@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Exercise1.MainPage">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    Android="0,20,0,0">
+
+        </OnPlatform>
+    </ContentPage.Padding>
+
+
+
+    <StackLayout Padding="5,5,5,5">
+
+        <Label x:Name="next"
+               Text="Next"
+               TextColor="Green"
+               HorizontalOptions="Center"
+               VerticalOptions="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="btn_next_Clicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+
+        <Label x:Name="lable_1"
+               Text="{Binding Source={x:Reference slider},Path=Value,
+               StringFormat='Font size: {00:0}'}">
+
+        </Label>
+
+
+
+        <Slider x:Name="slider"
+                Maximum="100"
+                ThumbColor="Pink"
+                MaximumTrackColor="Pink"/>
+
+        <Label x:Name="label_2"
+               Text="Exercise1"
+               FontSize="{Binding Source={x:Reference slider},Path=Value}"/>
+    </StackLayout>
+
+</ContentPage>
